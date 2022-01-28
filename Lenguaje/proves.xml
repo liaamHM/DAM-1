@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="example.css"?>
+<professor>
+    <nom>Pilar</nom>
+    <cognom>Gómez</cognom>
+    <departament>Departament d'informatica</departament>
+    <carrecs>
+        <carrec>Manteniment,</carrec>
+        <carrec>Tutora,</carrec>
+    </carrecs>
+</professor>
