@@ -4,6 +4,7 @@
 }
 
 professor{
+    display: block;
     border: 5px solid black;
     width: 40em;
     margin-top: 5em;
