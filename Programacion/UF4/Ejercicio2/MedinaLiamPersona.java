@@ -6,13 +6,13 @@ import java.util.Scanner;
 public class MedinaLiamPersona {
         int numeroDNI;
         char letraDNI;
-        String sexo = "Otro";
+        char sexo = 'O';
         double altura;
         double peso;
         int edad;
         String nombre;
 
-    public MedinaLiamPersona(int numeroDNI, String sexo, double altura, double peso, int edad, String nombre) {
+    public MedinaLiamPersona(int numeroDNI, char sexo, double altura, double peso, int edad, String nombre) {
         this.numeroDNI = numeroDNI;
         this.letraDNI = letraDNI;
         this.sexo = sexo;
@@ -28,7 +28,6 @@ public class MedinaLiamPersona {
     
     public char letraNum(int num){
         char letras[] = new char[]{'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'};
-        boolean salir = false;
         int residuo = num % 23;
         char letra = letras[residuo];
         letraDNI = letra;
@@ -67,14 +66,14 @@ public class MedinaLiamPersona {
 
 
     public void informacionCompleta(){
+        System.out.println("");
         System.out.println("INFORMACION COMPLETA:");
         System.out.println("Nombre: " + nombre);
-        System.out.println("Edad: " + edad);
+        System.out.println("Edad: " + edad + " años");
         System.out.println("DNI: " + numeroDNI + letraDNI);
         System.out.println("Sexo: " + sexo);
-        System.out.println("Peso: " + peso);
-        System.out.println("Altura: " + altura);
-        System.out.println("");
+        System.out.println("Peso: " + peso + "kg");
+        System.out.println("Altura: " + altura + "m");
     }
 }
 

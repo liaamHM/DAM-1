@@ -2,33 +2,33 @@ package com.mycompany.keke;
 
 import java.util.Scanner;
 
-public class MedinaLiamPersonaMain {
+public class MedinaLiamPersonaPrincipal {
 
     public static void main(String[] args) {
-        int numeroDNI =0;
-        String sexo = "Otro";
+        int numeroDNI = 0;
+        char sexo = 'O';
         double altura = 0;
         double peso = 0;
-        int edad  =0;
-        String nombre  ="";
-        
+        int edad = 0;
+        String nombre = "";
+
         Scanner entrada = new Scanner(System.in);
         System.out.println("¿Como te llamas?");
         boolean salir = false;
-        
-        while (!salir) {
+
+        do {
             if (entrada.hasNextLine()) {
                 nombre = entrada.nextLine();
                 salir = true;
             } else {
                 System.out.println("Error, introduce un nombre valido");
             }
-            entrada.nextLine();
-        }
+
+        } while (!salir);
 
         System.out.println("¿Cuantos años tienes?");
         boolean salir2 = false;
-        
+
         while (!salir2) {
             if (entrada.hasNextInt()) {
                 edad = entrada.nextInt();
@@ -46,7 +46,7 @@ public class MedinaLiamPersonaMain {
             if (entrada.hasNextInt()) {
                 numeroDNI = entrada.nextInt();
                 if (numeroDNI < 99999999 && numeroDNI > 0) {
-                    salir = true;
+                    salir3 = true;
                 } else {
                     System.out.println("Numero incorrecto");
                     entrada.nextLine();
@@ -61,25 +61,25 @@ public class MedinaLiamPersonaMain {
 
         System.out.println("¿Cual es tu sexo? (H/M/Otro)");
         boolean salir4 = false;
-        
+
         while (!salir4) {
             if (entrada.hasNextLine()) {
                 sexo = entrada.nextLine().charAt(0);
-                if (sexo == "H" || sexo == "M"){
+                if (sexo == 'H' || sexo == 'M') {
                     salir4 = true;
                 } else {
-                    sexo = "Otro";
+                    sexo = 'O';
                     salir = true;
                 }
             } else {
                 System.out.println("Error, introduce un sexo valido");
             }
-            entrada.nextLine();
+
         }
 
         System.out.println("¿Cuanto pesas?");
         boolean salir5 = false;
-        
+
         while (!salir5) {
             if (entrada.hasNextDouble()) {
                 peso = entrada.nextDouble();
@@ -92,7 +92,7 @@ public class MedinaLiamPersonaMain {
 
         System.out.println("¿Cuanto mides?");
         boolean salir6 = false;
-        
+
         while (!salir6) {
             if (entrada.hasNextDouble()) {
                 altura = entrada.nextDouble();
@@ -104,6 +104,28 @@ public class MedinaLiamPersonaMain {
         }
 
         MedinaLiamPersona p1 = new MedinaLiamPersona(numeroDNI, sexo, altura, peso, edad, nombre);
+        p1.letraNum(numeroDNI);
+        p1.informacionCompleta();
+        int IMC = p1.IMC(altura, peso);
+        switch (IMC) {
+            case -1:
+                System.out.println("Tu peso esta por debajo de lo normal.");
+                break;
+            case 0:
+                System.out.println("Tu peso es ideal.");
+                break;
+            case 1:
+                System.out.println("Tienes sobrepeso.");
+                break;
+        }
+        boolean respuesta = p1.legalidadEdad();
+
+        if (respuesta == true) {
+            System.out.println("Eres mayor de edad.");
+        } else {
+            System.out.println("Eres menor de edad.");
+        }
+
     }
 
 }
